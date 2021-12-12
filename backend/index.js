@@ -312,6 +312,8 @@ var sub
 //to get subject by id
 app.get('/subjects/:id', (req, res) => {
     var subject_id = req.params.id;
+
+    
     if(isValidSubject(subject_id)) {
         MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true },
             (err, db) => {
@@ -333,6 +335,7 @@ app.get('/subjects/:id', (req, res) => {
 //select
 app.post('/select/:id', (req, res) => {
     var subject_id = req.params.id;
+
     if(isValidSubject(subject_id)) {
         MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true },
             (err, db) => {
